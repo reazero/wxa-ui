@@ -19,6 +19,7 @@ wxa.launchPage(Index);
 </config>
 <template>
 <view class="page">
+    <view class="title">Center</view>
     <view class="header">垂直居中， 竖向</view>
     <center direction="row" class="row">
         <view class="item">something beautify</view>

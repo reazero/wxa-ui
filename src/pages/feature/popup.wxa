@@ -28,7 +28,7 @@ wxa.launchPage(Popup);
 }
 </config>
 <template>
-    <view class="h">
+    <view class="title">
         Popup
     </view>
     <center direction="column" class="center">

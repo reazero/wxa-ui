@@ -27,7 +27,8 @@ wxa.launchPage(HolyGrail);
 <template>
 <holy-grail class="page">
     <view class="main" slot="main">
-        这里是主内容
+        <view class="title">HolyGrail</view>
+        <!-- 这里是主内容 -->
         <button type="primary" plain="true" bindtap="makeFull">{{staff ? '单页显示' : '充满屏幕'}}</button>
         <view wx:if="{{staff}}" class="staff">
             <text>    

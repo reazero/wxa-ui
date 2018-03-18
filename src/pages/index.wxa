@@ -35,12 +35,13 @@ wxa.launchPage(Index);
 <view class="page">
     <view class="head">
         <view class="logo">
-            WxaUI
+            <!-- WxaUI -->
+            <image src="../assets/logo.png"></image>
         </view>
-        <view class="sub">使用wxa开发的组件库</view>
+        <view class="sub-title">使用wxa开发的组件库</view>
     </view>
     <view class="section">
-        <collapse class="layout">
+        <collapse class="layout" spread="true">
             <view class="header" slot="header" bindtap="toggle" data-idOfCol="layout">
                 <view class="item">Layout</view>
             </view>
@@ -51,15 +52,26 @@ wxa.launchPage(Index);
         </collapse>
     </view>
     <view class="section">
-        <collapse class="feature">
+        <collapse class="feature" spread="true">
             <view class="header" slot="header" bindtap="toggle" data-idOfCol="feature">
                 <view class="item">Feature</view>
             </view>
             <view class="main" slot="main">
-                <view class="item" bindtap="$go" data-path="./carousel">Swiper</view>
+                <view class="item" bindtap="$go" data-path="./carousel">Carousel</view>
                 <view class="item" bindtap="$go" data-path="./feature/popup">Popup</view>
                 <view class="item" bindtap="$go" data-path="./feature/collapse">Collapse</view>
                 <view class="item" bindtap="$go" data-path="./feature/counting">Counting</view>
+            </view>
+        </collapse>
+    </view>
+    <view class="section">
+        <collapse class="wiget" spread="true">
+            <view class="header" slot="header" bindtap="toggle" data-idOfCol="wiget">
+                <view class="item">Wiget</view>
+            </view>
+            <view class="main" slot="main">
+                <view class="item" bindtap="$go" data-path="./widget/price">Price</view>
+                <view class="item" bindtap="$go" data-path="./widget/elip">Elip</view>
             </view>
         </collapse>
     </view>
@@ -67,12 +79,16 @@ wxa.launchPage(Index);
 </template>
 <style lang="scss">
 .page {
+    position: fixed;
+    overflow: scroll;
+    box-sizing: border-box;
     width: 100%;
     height: 100%;
     background-color: #f6f6f6;
     font-size: 32rpx;
     text-align: center;
     color: #353535;
+    padding-bottom: 40rpx;
 }
 view {
     box-sizing: border-box;
@@ -84,13 +100,19 @@ view {
 
 .logo {
     border-radius: 100%;
-    width: 120rpx;
-    line-height: 120rpx;
+    width: 200rpx;
+    height: 200rpx;
+    // line-height: 120rpx;
     border: 4rpx solid white;
-    margin: 0 auto;
-    background: #f76260;
-    text-align: center;
+    margin: 20rpx auto 0 auto;
+    // background: #f76260;
+    // text-align: center;
     color: white;
+
+    image {
+        width: 100%;
+        height: 100%;
+    }
 }
 
 .sub {
@@ -100,9 +122,12 @@ view {
 
 .section{
     background-color: white;
-    margin-top: 40rpx;
     padding-left: 30rpx;
     text-align: left;
+
+    &:not(:first-child) {
+        margin-top: 40rpx;  
+    }
 
     .header {
         font-size: 36rpx;

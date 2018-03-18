@@ -31,7 +31,7 @@ wxa.launchPage(Collapse);
 }
 </config>
 <template>
-    <view class="h">
+    <view class="title">
         Collapse
     </view>
     <collapse class="col">

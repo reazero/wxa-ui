@@ -7,6 +7,12 @@ class Collapse {
     options = {
         multipleSlots: true,
     }
+    properties = {
+        spread: {
+            type: Boolean,
+            value: false,
+        },
+    }
     methods = {
         show() {
             this.animate(this.mainHeight);
@@ -36,6 +42,7 @@ class Collapse {
             if (ret == null || ret[0] === null) return this.mainHeight = 'auto';
 
             this.mainHeight = ret[0].height;
+            if (this.data.spread) this.show();
         });
     }
 }

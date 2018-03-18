@@ -16,7 +16,8 @@ wxa.launchApp(Main);
         "pages/layout/center",
         "pages/layout/holygrail",
         "pages/feature/collapse",
-        "pages/feature/counting"
+        "pages/feature/counting",
+        "pages/feature/popup"
     ]
 }
 </config>

@@ -45,8 +45,8 @@ wxa.launchPage(Index);
                 <view class="item">Layout</view>
             </view>
             <view class="main" slot="main">
-                <view class="item" bindtap="$go" data-path="./layout/center">center</view>
-                <view class="item" bindtap="$go" data-path="./layout/holygrail">holy-grail</view>
+                <view class="item" bindtap="$go" data-path="./layout/center">Center</view>
+                <view class="item" bindtap="$go" data-path="./layout/holygrail">Holy-Grail</view>
             </view>
         </collapse>
     </view>
@@ -56,9 +56,10 @@ wxa.launchPage(Index);
                 <view class="item">Feature</view>
             </view>
             <view class="main" slot="main">
-                <view class="item" bindtap="$go" data-path="./carousel">swiper</view>
-                <view class="item" bindtap="$go" data-path="./feature/collapse">collapse</view>
-                <view class="item" bindtap="$go" data-path="./feature/counting">counting</view>
+                <view class="item" bindtap="$go" data-path="./carousel">Swiper</view>
+                <view class="item" bindtap="$go" data-path="./feature/popup">Popup</view>
+                <view class="item" bindtap="$go" data-path="./feature/collapse">Collapse</view>
+                <view class="item" bindtap="$go" data-path="./feature/counting">Counting</view>
             </view>
         </collapse>
     </view>

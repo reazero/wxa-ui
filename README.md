@@ -2,4 +2,4 @@
 ui components for wechat miniprogram development
 
 # minicode
-![minicode]('./minicode.jpg')
+![minicode](./minicode.jpg)

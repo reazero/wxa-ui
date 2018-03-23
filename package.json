@@ -1,8 +1,8 @@
 {
-    "name": "wxa-ui",
-    "version": "1.0.0",
+    "name": "@wxa/ui",
+    "version": "0.1.0",
     "description": "",
-    "main": "index.js",
+    "main": "src/",
     "scripts": {
         "dev": "wxa build --watch",
         "build": "cross-env NODE_ENV=production wxa build --no-cache"

@@ -58,6 +58,12 @@ wxa.launchPage(Price);
                 <price value="16.66" symbol="" category="sub" small-decimal="true"></price>
             </view>
         </view>
+        <view class="section">
+            <view class="sub-title">normal with margin</view>
+            <view>
+                <price value="17.777" withMargin></price>
+            </view>
+        </view>
     </view>
 </template>
 <style lang="scss">

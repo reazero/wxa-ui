@@ -19,6 +19,7 @@ wxa.launchApp(Main);
         "pages/feature/collapse",
         "pages/feature/counting",
         "pages/feature/popup",
+        "pages/feature/numberKeyboard",
 
         "pages/widget/price",
         "pages/widget/elip"

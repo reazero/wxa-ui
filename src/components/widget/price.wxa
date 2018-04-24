@@ -1,5 +1,5 @@
 <template>
-    <text class="price {{category}}"><text class="symbol">{{symbol}}</text><text class="round">{{round}}</text><text class="decimal {{smallDecimal&&'small'||''}}" wx:if="{{isDecimal}}">.{{decimal}}</text></text>
+    <text class="price {{category}}"><text class="symbol" style="{{withMargin?'margin-right: 20rpx':''}}">{{symbol}}</text><text class="round">{{round}}</text><text class="decimal {{smallDecimal&&'small'||''}}" wx:if="{{isDecimal}}">.{{decimal}}</text></text>
 </template>
 <script>
 import {wxa} from '@wxa/core';
@@ -30,6 +30,10 @@ class Price {
         category: {
             type: String,
             value: 'normal',
+        },
+        withMargin: {
+            type: Boolean,
+            value: false,
         },
     }
     data = {

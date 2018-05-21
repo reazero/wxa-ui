@@ -62,6 +62,7 @@ wxa.launchPage(Index);
                 <view class="item" bindtap="$go" data-path="./feature/collapse">Collapse</view>
                 <view class="item" bindtap="$go" data-path="./feature/counting">Counting</view>
                 <view class="item" bindtap="$go" data-path="./feature/numberKeyboard">numberKeyboard</view>
+                <view class="item" bindtap="$go" data-path="./feature/getAuth">getUserAuth</view>
             </view>
         </collapse>
     </view>

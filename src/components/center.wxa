@@ -14,6 +14,7 @@ class Center {
 }
 
 wxa.launchComponent(Center);
+
 </script>
 <template>
     <view class="main" style="{{mainPanel}}">

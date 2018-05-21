@@ -152,7 +152,7 @@ Component(new GetAuth);
         line-height: 80rpx;
         padding: 0;
         font-size: 34rpx;
-        margin-top: 60rpx;
+        margin: 60rpx auto 40rpx auto;
     }
 }
 

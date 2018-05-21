@@ -24,6 +24,5 @@ module.exports = {
 };
 
 if (prod) {
-    delete module.exports.compilers.babel.sourcesMap;
     module.exports.plugins.push(new UglifyjsPlugin());
 }

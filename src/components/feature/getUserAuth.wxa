@@ -7,6 +7,7 @@
                 {{tip}}
             </view>
             <button 
+                class="btn-class"
                 open-type="{{category}}" 
                 bindgetuserinfo="get" 
                 bindgetphonenumber="get"
@@ -22,6 +23,8 @@
 
 const app = getApp();
 class GetAuth {
+    externalClasses = ['btn-class']
+
     properties = {
         route: {
             type: String,

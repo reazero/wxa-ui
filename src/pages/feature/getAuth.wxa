@@ -42,9 +42,11 @@ wxa.launchPage(GetAuth);
             </view>
 
             <button type="primary" bindtap="getAuth" size="mini" data-type="auth">授权</button>
+            <button type="primary" bindtap="getAuth" size="mini" data-type="colorAuth">控制按钮样式的授权</button>
             <get-user-auth 
-                is-authing="{{auth}}" 
+                is-authing="{{colorAuth}}" 
                 bindfinish="get"
+                btn-class="btn-class"
             ></get-user-auth>
         </view>
         <view class="section">
@@ -95,5 +97,8 @@ wxa.launchPage(GetAuth);
 <style lang="scss">
 button {
     margin: 40rpx auto;
+}
+.btn-class {
+    background-color: lightcoral!important;
 }
 </style>

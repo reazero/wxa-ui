@@ -2,7 +2,7 @@
     <view class="getAuth" wx:if="{{isAuthing}}">
         <view class="mask" catchtap="tapMask"></view>
         <view class="container">
-            <image class="logo" src="{{logo}}"></image>
+            <image class="logo" src="{{logo}}" class="logo-class"></image>
             <view class="tip">
                 {{tip}}
             </view>
@@ -23,7 +23,7 @@
 
 const app = getApp();
 class GetAuth {
-    externalClasses = ['btn-class']
+    externalClasses = ['btn-class', 'logo-class']
 
     properties = {
         route: {

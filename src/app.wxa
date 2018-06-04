@@ -21,6 +21,7 @@ wxa.launchApp(Main);
         "pages/feature/popup",
         "pages/feature/numberKeyboard",
         "pages/feature/getAuth",
+        "pages/feature/titleBar",
 
         "pages/widget/price",
         "pages/widget/elip"

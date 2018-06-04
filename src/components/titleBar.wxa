@@ -1,0 +1,84 @@
+<template>
+    <view class="wrap view-class" style="background-color:{{bgColor}}; color:{{fontColor}}; font-size:{{fontSize}}">
+        <span class="flex-item" bindtap="goBack">{{pagesCount>1?"返回":"　　"}}</span>
+        <span class="title">
+            {{title}}
+        </span>
+        <span class="flex-item">　　　</span>
+    </view>
+    <view>
+        <slot></slot>
+    </view>
+</template>
+
+<script>
+import {wxa, Page} from '@wxa/core';
+
+@Page 
+class titleBar {
+    externalClasses = ['view-class']
+
+    properties = {
+        title: {
+            type: String,
+            value: 'Title'
+        },
+        bgColor: {
+            type: String,
+            value: 'transparent'
+        },
+        fontColor: {
+            type: String,
+            value: '#000'
+        },
+        fontSize: {
+            type: String,
+            value: '32rpx'
+        }
+    }
+    data = {
+        pagesCount: 0,
+    }
+    ready(){
+        this.setData({pagesCount: getCurrentPages().length});
+    }
+    methods = {
+        goBack(){
+            wx.navigateBack({
+                delta: 1
+            });
+        }
+    }
+}
+
+wxa.launchComponent(titleBar);
+</script>
+<style lang="sass">
+    .wrap{
+        padding-top: 24px;
+        width: 100%;
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        justify-content: space-between
+    }
+    .flex-item{
+        height: 46px;
+        line-height: 46px;
+        padding: 0 10px;
+        z-index: 2;
+    }
+    .title{
+        width: 100%;
+        height: 46px;
+        line-height: 46px;
+        position: absolute;
+        text-align: center;
+        z-index: 1;
+    }
+</style>
+<config>
+{
+    "component": true
+}
+</config>

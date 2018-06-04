@@ -1,0 +1,26 @@
+<config>
+{
+    "usingComponents": {
+        "titleBar" : "../../components/titleBar"
+    }
+}
+</config>
+<template>
+    <titleBar title="{{titleText}}" bgColor="cornflowerblue" fontColor="#FFF" font-size="28rpx">
+        <view style="text-align: center;">Something Inside</view>
+    </titleBar>
+</template>
+
+<script>
+import {wxa, Page} from '@wxa/core';
+
+@Page 
+class Navigation {
+    data = {
+        titleText: '自定义标题'
+    }
+}
+
+wxa.launchPage(Navigation);
+</script>
+

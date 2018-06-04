@@ -60,7 +60,7 @@ wxa.launchComponent(titleBar);
         display: flex;
         flex-wrap: nowrap;
         flex-direction: row;
-        justify-content: space-between
+        justify-content: space-between;
     }
     .flex-item{
         height: 46px;

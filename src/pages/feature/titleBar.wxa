@@ -6,7 +6,7 @@
 }
 </config>
 <template>
-    <titleBar title="{{titleText}}" bgColor="cornflowerblue" fontColor="#FFF" fontSize="28rpx" position="fixed" zIndex="10" top="0">
+    <titleBar title="{{titleText}}" bgColor="cornflowerblue" fontColor="#FFF" fontSize="28rpx" position="fixed" zIndex="10" top="0" bar-class="bar-class">
     </titleBar>
     <view class="demo">Something Inside</view>    
 </template>
@@ -29,5 +29,8 @@ wxa.launchPage(titleBar);
     height: 1500rpx;
     border: solid 1px;
     margin-top: 70px;
+}
+.bar-class{
+    height: 100px;
 }
 </style>

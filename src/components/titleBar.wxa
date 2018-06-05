@@ -56,11 +56,6 @@ class titleBar {
         var _this = this;
         this.setData({pagesCount: getCurrentPages().length});
     }
-    detached(){
-        let pages = getCurrentPages();
-        let curPage = pages[pages.length - 1];
-        curPage.onPageScroll = this.data.originScrollFn;
-    }
     methods = {
         goBack(){
             if (this.data.pagesCount>1) {

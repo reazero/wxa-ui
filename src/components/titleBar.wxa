@@ -4,7 +4,7 @@
             <span class="title">
                 <span class="btn fl" bindtap="goBack">{{pagesCount>1?"返回":"　　"}}</span>                
                 {{title}}
-                <span class="btn fr" bindtap="goBack">　　</span>                
+                <span class="btn fr">　　</span>                
             </span>
         </view>
     </view>

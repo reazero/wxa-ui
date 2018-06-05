@@ -40,7 +40,7 @@ class titleBar {
         },
         zIndex: {
             type: String,
-            value: '100'
+            value: '2147483647'
         },
         top: {
             type: String,

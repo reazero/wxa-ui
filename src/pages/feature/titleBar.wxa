@@ -28,9 +28,9 @@ wxa.launchPage(titleBar);
     text-align: center;
     height: 1500rpx;
     border: solid 1px;
-    margin-top: 70px;
+    margin-top: 74px;
 }
 .bar-class{
-    height: 100px;
+    height: 74px;
 }
 </style>

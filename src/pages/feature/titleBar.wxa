@@ -6,21 +6,28 @@
 }
 </config>
 <template>
-    <titleBar title="{{titleText}}" bgColor="cornflowerblue" fontColor="#FFF" font-size="28rpx">
-        <view style="text-align: center;">Something Inside</view>
+    <titleBar title="{{titleText}}" bgColor="cornflowerblue" fontColor="#FFF" fontSize="28rpx" position="fixed" zIndex="10" top="0">
     </titleBar>
+    <view class="demo">Something Inside</view>    
 </template>
 
 <script>
 import {wxa, Page} from '@wxa/core';
 
 @Page 
-class Navigation {
+class titleBar {
     data = {
         titleText: '自定义标题'
     }
 }
-
-wxa.launchPage(Navigation);
+wxa.launchPage(titleBar);
 </script>
 
+<style>
+.demo{
+    text-align: center;
+    height: 1500rpx;
+    border: solid 1px;
+    margin-top: 70px;
+}
+</style>

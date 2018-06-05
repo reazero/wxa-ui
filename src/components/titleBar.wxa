@@ -1,13 +1,12 @@
 <template>
-    <view class="wrap view-class" style="background-color:{{bgColor}}; color:{{fontColor}}; font-size:{{fontSize}}">
-        <span class="flex-item" bindtap="goBack">{{pagesCount>1?"返回":"　　"}}</span>
-        <span class="title">
-            {{title}}
-        </span>
-        <span class="flex-item">　　　</span>
-    </view>
-    <view>
-        <slot></slot>
+    <view class="wrap bar-class" style="background-color:{{bgColor}}; color:{{fontColor}}; font-size:{{fontSize}}; position:{{position}}; z-index:{{zIndex}}; top:{{top}}">
+        <view style="overflow: hidden;">
+            <span class="title">
+                <span class="btn fl" bindtap="goBack">{{pagesCount>1?"返回":"　　"}}</span>                
+                {{title}}
+                <span class="btn fr" bindtap="goBack">　　</span>                
+            </span>
+        </view>
     </view>
 </template>
 
@@ -16,7 +15,7 @@ import {wxa, Page} from '@wxa/core';
 
 @Page 
 class titleBar {
-    externalClasses = ['view-class']
+    externalClasses = ['bar-class']
 
     properties = {
         title: {
@@ -34,19 +33,41 @@ class titleBar {
         fontSize: {
             type: String,
             value: '32rpx'
+        },
+        position: {
+            type: String,
+            value: 'static'
+        },
+        zIndex: {
+            type: String,
+            value: '100'
+        },
+        top: {
+            type: String,
+            value: '0'
         }
     }
     data = {
         pagesCount: 0,
+        originScrollFn: '',
+        srcollTop: ''
     }
     ready(){
+        var _this = this;
         this.setData({pagesCount: getCurrentPages().length});
+    }
+    detached(){
+        let pages = getCurrentPages();
+        let curPage = pages[pages.length - 1];
+        curPage.onPageScroll = this.data.originScrollFn;
     }
     methods = {
         goBack(){
-            wx.navigateBack({
-                delta: 1
-            });
+            if (this.data.pagesCount>1) {
+                wx.navigateBack({
+                    delta: 1
+                });
+            }
         }
     }
 }
@@ -57,24 +78,25 @@ wxa.launchComponent(titleBar);
     .wrap{
         padding-top: 24px;
         width: 100%;
-        display: flex;
-        flex-wrap: nowrap;
-        flex-direction: row;
-        justify-content: space-between;
+        overflow: hidden;
     }
-    .flex-item{
+    .btn{
         height: 46px;
         line-height: 46px;
         padding: 0 10px;
-        z-index: 2;
+    }
+    .fl{
+        float: left;
+    }
+    .fr{
+        float: right;
     }
     .title{
         width: 100%;
         height: 46px;
         line-height: 46px;
-        position: absolute;
         text-align: center;
-        z-index: 1;
+        display: inline-block;
     }
 </style>
 <config>

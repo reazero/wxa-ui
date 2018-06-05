@@ -1,36 +1,37 @@
 <config>
 {
     "usingComponents": {
-        "titleBar" : "../../components/titleBar"
-    }
+        "title-bar" : "../../components/titleBar"
+    },
+    "navigationBarTitleText": "Title-Bar组件"
 }
 </config>
 <template>
-    <titleBar title="{{titleText}}" bgColor="cornflowerblue" fontColor="#FFF" fontSize="28rpx" position="fixed" zIndex="10" top="0" bar-class="bar-class">
-    </titleBar>
+    <title-bar title="{{titleText}}" bgColor="cornflowerblue" color="#FFF" mode="fixed" options="{{barOpts}}"></title-bar>
     <view class="demo">Something Inside</view>    
 </template>
 
 <script>
-import {wxa, Page} from '@wxa/core';
+import { wxa, Page } from "@wxa/core";
 
-@Page 
+@Page
 class titleBar {
-    data = {
-        titleText: '自定义标题'
+  data = {
+    titleText: "自定义标题",
+    barOpts: {
+      top: 0,
+      zIndex: Number.MAX_SAFE_INTEGER
     }
+  };
 }
 wxa.launchPage(titleBar);
 </script>
 
 <style>
-.demo{
-    text-align: center;
-    height: 1500rpx;
-    border: solid 1px;
-    margin-top: 74px;
-}
-.bar-class{
-    height: 74px;
+.demo {
+  text-align: center;
+  height: 1500rpx;
+  border: solid 1px;
+  margin-top: 64px;
 }
 </style>

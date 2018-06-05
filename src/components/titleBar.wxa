@@ -1,97 +1,114 @@
 <template>
-    <view class="wrap bar-class" style="background-color:{{bgColor}}; color:{{fontColor}}; font-size:{{fontSize}}; position:{{position}}; z-index:{{zIndex}}; top:{{top}}">
-        <view style="overflow: hidden;">
-            <span class="title">
-                <span class="btn fl" bindtap="goBack">{{pagesCount>1?"返回":"　　"}}</span>                
-                {{title}}
-                <span class="btn fr">　　</span>                
-            </span>
-        </view>
+    <view class="bar-class" style="backGround-color:{{bgColor}}; position:{{mode}}; top:{{options.top}}; z-index:{{options.zIndex}};">
+        <span class="btn" bindtap="goBack"><i class="iconfont" style="color:{{color}}">{{pagesCount>1?"":"　"}}</i></span>
+        <span class="title item-center" style="color:{{color}}">{{title}}</span>
+        <span class="btn">　</span>
     </view>
 </template>
 
 <script>
-import {wxa, Page} from '@wxa/core';
+import { wxa, Page } from "@wxa/core";
 
-@Page 
+@Page
 class titleBar {
-    externalClasses = ['bar-class']
-
-    properties = {
-        title: {
-            type: String,
-            value: 'Title'
-        },
-        bgColor: {
-            type: String,
-            value: 'transparent'
-        },
-        fontColor: {
-            type: String,
-            value: '#000'
-        },
-        fontSize: {
-            type: String,
-            value: '32rpx'
-        },
-        position: {
-            type: String,
-            value: 'static'
-        },
-        zIndex: {
-            type: String,
-            value: '2147483647'
-        },
-        top: {
-            type: String,
-            value: '0'
+  properties = {
+    title: {
+      type: String,
+      value: "Title"
+    },
+    mode: {
+      type: String,
+      value: "fixed"
+    },
+    bgColor: {
+      type: String,
+      value: "transparent"
+    },
+    color: {
+      type: String,
+      value: "#000"
+    },
+    options: {
+      type: Object,
+      value: {
+        zIndex: "",
+        top: ""
+      }
+    }
+  };
+  data = {
+    pagesCount: 0
+  };
+  ready() {
+    let opts = {};
+    Object.keys(this.data.options).forEach((item, index) => {
+      if (!this.data.options[item]) {
+        switch (item) {
+          case "zIndex":
+            opts[item] = Number.MAX_SAFE_INTEGER;
+            break;
+          case "top":
+            opts[item] = "0";
+            break;
         }
+      }
+    });
+    this.setData({
+      pagesCount: getCurrentPages().length,
+      options: opts
+    });
+  }
+  methods = {
+    goBack() {
+      if (this.data.pagesCount > 1) {
+        wx.navigateBack({
+          delta: 1
+        });
+      }
     }
-    data = {
-        pagesCount: 0,
-        originScrollFn: '',
-        srcollTop: ''
-    }
-    ready(){
-        var _this = this;
-        this.setData({pagesCount: getCurrentPages().length});
-    }
-    methods = {
-        goBack(){
-            if (this.data.pagesCount>1) {
-                wx.navigateBack({
-                    delta: 1
-                });
-            }
-        }
-    }
+  };
 }
 
 wxa.launchComponent(titleBar);
 </script>
 <style lang="sass">
-    .wrap{
-        padding-top: 24px;
+    @font-face {
+        font-family: "iconfont";
+        src: url('data:application/x-font-woff;charset=utf-8;base64,d09GRgABAAAAAAUAAAsAAAAAB2QAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABHU1VCAAABCAAAADMAAABCsP6z7U9TLzIAAAE8AAAARAAAAFZW7kf5Y21hcAAAAYAAAABeAAABhpl0Br5nbHlmAAAB4AAAATQAAAFQ73waNGhlYWQAAAMUAAAALwAAADYRmEqWaGhlYQAAA0QAAAAcAAAAJAfeA4RobXR4AAADYAAAAAwAAAAMC+kAAGxvY2EAAANsAAAACAAAAAgAdgCobWF4cAAAA3QAAAAfAAAAIAESAF1uYW1lAAADlAAAAUUAAAJtPlT+fXBvc3QAAATcAAAAIwAAADTc3eh0eJxjYGRgYOBikGPQYWB0cfMJYeBgYGGAAJAMY05meiJQDMoDyrGAaQ4gZoOIAgCKIwNPAHicY2Bk/sE4gYGVgYOpk+kMAwNDP4RmfM1gxMjBwMDEwMrMgBUEpLmmMDgwVDzjZ27438AQw9zA0AAUZgTJAQAkeQx7eJzFkMENgDAMAy9t6QMhdQ0eDMSLOTpx1ygmlAcT1JJjxbGUKMACRPEQE9iF8eCUa+5HVveTZ7LUCNRWelf/qSKaZdegkpkGm7f6j83rPjp9hTqoE1t5SbgBc6cLywAAeJw1TztOw0AUfG+N107wh6z/64TEn3hBgUgYYwqUpKEBUSDRQMkBoKFIAUUaJAqQOANC4hK5AadAcAZKgy3BaKQZzUwzIAP8fEhLyQcLNmAHDuEUAOkIY4P0MBLFmIzQiWTHsw1JJCJSkngsTdCLqe3mZZF5VKEmGriOu1FeijERuFdMyQHmbg8xCPkZG3aZ9IxtX6zfV8fkBZ1+0jWn29XR1szOB5Y61xgLGHtUqSyrhKyYBl55bktutWn1KpvcWfY3SR+1QPCTC30QssuH4ro39FqIiwVa4cB4m3V4p+Yddy0WKGu66nM9SW2cf636ltbLPqEGqb++k29pChoE9cs4K/axzF1bQYqxwKwocw9dm+KEcR2f9JTr1Y2Ot6wRnjYRx/M/kzZhU//vkhDgF/apNZZ4nGNgZGBgAOIdoc068fw2Xxm4WRhA4LpNsweC/n+ahYHZDsjlYGACiQIADWwJQgB4nGNgZGBgbvjfwBDDwgACQJKRARUwAwBHCQJsBAAAAAPpAAAEAAAAAAAAAAB2AKh4nGNgZGBgYGYIZGBlAAEmIOYCQgaG/2A+AwAQ9wFwAHicZY9NTsMwEIVf+gekEqqoYIfkBWIBKP0Rq25YVGr3XXTfpk6bKokjx63UA3AejsAJOALcgDvwSCebNpbH37x5Y08A3OAHHo7fLfeRPVwyO3INF7gXrlN/EG6QX4SbaONVuEX9TdjHM6bCbXRheYPXuGL2hHdhDx18CNdwjU/hOvUv4Qb5W7iJO/wKt9Dx6sI+5l5XuI1HL/bHVi+cXqnlQcWhySKTOb+CmV7vkoWt0uqca1vEJlODoF9JU51pW91T7NdD5yIVWZOqCas6SYzKrdnq0AUb5/JRrxeJHoQm5Vhj/rbGAo5xBYUlDowxQhhkiMro6DtVZvSvsUPCXntWPc3ndFsU1P9zhQEC9M9cU7qy0nk6T4E9XxtSdXQrbsuelDSRXs1JErJCXta2VELqATZlV44RelzRiT8oZ0j/AAlabsgAAAB4nGNgYoAALgbsgJmRiZGZkYWBsYItLTEvozSTgQEAFacDFgA=') format('woff');
+    }
+    .iconfont{
+        font-family:"iconfont" !important;
+        font-size:10pt;font-style:normal;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-stroke-width: 0.2px;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    .bar-class{
         width: 100%;
-        overflow: hidden;
-    }
-    .btn{
-        height: 46px;
-        line-height: 46px;
-        padding: 0 10px;
-    }
-    .fl{
-        float: left;
-    }
-    .fr{
-        float: right;
-    }
-    .title{
-        width: 100%;
-        height: 46px;
-        line-height: 46px;
-        text-align: center;
-        display: inline-block;
+        padding-top: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        .title{
+            font-size: 10pt;
+            self-align: center;
+            display: inline-block;
+            height: 44px;
+            line-height: 44px;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 300rpx;
+        }
+        .btn{
+            font-size: 10pt;
+            display: inline-block;
+            height: 44px;
+            line-height: 44px;
+            self-align: stetch;
+            padding: 0 20rpx;
+        }
     }
 </style>
 <config>

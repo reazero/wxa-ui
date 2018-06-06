@@ -32,6 +32,6 @@ wxa.launchPage(titleBar);
   text-align: center;
   height: 1500rpx;
   border: solid 1px;
-  margin-top: 64px;
+  margin-top: 172rpx;
 }
 </style>

@@ -85,16 +85,16 @@ wxa.launchComponent(titleBar);
     }
     .bar-class{
         width: 100%;
-        padding-top: 20px;
+        padding-top: 68rpx;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         .title{
-            font-size: 10pt;
+            font-size: 32rpx;
             self-align: center;
             display: inline-block;
-            height: 44px;
-            line-height: 44px;
+            height: 104rpx;
+            line-height: 104rpx;
             text-align: center;
             white-space: nowrap;
             overflow: hidden;
@@ -104,8 +104,8 @@ wxa.launchComponent(titleBar);
         .btn{
             font-size: 10pt;
             display: inline-block;
-            height: 44px;
-            line-height: 44px;
+            height: 104rpx;
+            line-height: 104rpx;
             self-align: stetch;
             padding: 0 20rpx;
         }
